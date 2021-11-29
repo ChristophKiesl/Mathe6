@@ -1,0 +1,26 @@
+"Bier" "Geschlecht" "Wohnort" "Gewicht"
+"1" 3 1 "Ulm" 78
+"2" 4 0 "Koeln" 85
+"3" 1 0 "Muenchen" 68
+"4" 1 0 "Suttgart" 81
+"5" 3 1 "Suttgart" 79
+"6" 4 0 "Ulm" 85
+"7" 3 1 "Koeln" 81
+"8" 3 1 "Muenchen" 65
+"9" 1 0 "Suttgart" 61
+"10" 3 1 "Ulm" 71
+"11" 2 1 "Koeln" 61
+"12" 2 1 "Muenchen" 83
+"13" 2 1 "Suttgart" 89
+"14" 1 0 "Muenchen" 86
+"15" 4 0 "Suttgart" 74
+"16" 3 1 "Koeln" 81
+"17" 2 1 "Muenchen" 87
+"18" 3 1 "Ulm" 81
+"19" 2 1 "Ulm" 86
+"20" 1 0 "Ulm" 63
+"21" 2 1 "Ulm" 68
+"22" 3 1 "Suttgart" 64
+"23" 2 1 "Muenchen" 70
+"24" 4 0 "Muenchen" 80
+"25" 2 1 "Koeln" 84
