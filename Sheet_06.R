@@ -31,3 +31,20 @@ chisq.test(table(myBier$Wohnort,myBier$Bier))$statistic #Berechnung der chi-quad
 
 #korrigierter Kontingenzkoeffizient fehlt noch
 #Interpretation des Ergebnisses
+
+#Augabe 4
+
+#Aufgabe 5
+
+chiq <-function(x){
+  t <- table(x[,1],x[,2])
+  t <- addmargins(t)
+}
+
+myOrdinal <- function(x){
+  
+}
+#x <- grades
+#t <- table(x[,1],x[,2])
+#t <- addmargins(t)
+#keine sorge, ich mach da weiter und denk mir was dabei
