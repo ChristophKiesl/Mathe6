@@ -3,7 +3,7 @@
     "path": "D:/Uni/Ulm/3.Semester/Ökomometrie und Wirtschaftsstatistik/Übungsblätter/Blatt 6/IchSehEsTrotzdemNichtEinMathe6/Sheet_06.R",
     "project_path": "Sheet_06.R",
     "type": "r_source",
-    "hash": "0",
+    "hash": "1048292979",
     "contents": "",
     "dirty": false,
     "created": 1638201125222.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "83,0",
-        "scrollLine": "60"
+        "cursorPosition": "96,0",
+        "scrollLine": "82"
     },
     "folds": "",
-    "lastKnownWriteTime": 1638284335,
+    "lastKnownWriteTime": 1638287675,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1638284335751,
+    "last_content_update": 1638287675816,
     "read_only": false,
     "read_only_alternatives": []
 }

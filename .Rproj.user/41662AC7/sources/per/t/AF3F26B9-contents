@@ -6,16 +6,17 @@ library(tidyverse)
 myBier <- read.csv("Data/myBier.txt", sep = " ")
 
 #3 a)
-pt=prop.table(table(myBier$Geschlecht,myBier$Bier),margin = 1)
-pt.rand = addmargins(pt)
+pt1=prop.table(table(myBier$Geschlecht,myBier$Bier),margin = 1)
+pt1.rand = addmargins(pt1)
 options(digits = 1)
-ftable(pt.rand) #Erstellen der Kontigenztafel der bedingten Häufigkeiten
+ftable(pt1.rand) #Erstellen der Kontigenztafel der bedingten Häufigkeiten
 
 mosaicplot(table(myBier$Geschlecht,myBier$Bier)) #Erstellen eines Mosaikplots
 
 chisq.test(table(myBier$Geschlecht,myBier$Bier))$statistic #Berechnung der chi-quadrat-größe
 
-#korrigierter Kontingenzkoeffizient fehlt noch
+KontingenzkoeffizientA <- sqrt(chisq.test(table(myBier$Geschlecht,myBier$Bier))$statistic/(chisq.test(table(myBier$Geschlecht,myBier$Bier))$statistic + length(myBier$Bier)))
+KontingenzkoeffizientA*sqrt(min(2,4)/(min(2,4)-1)) #Berechnung des korrigierten Kontingenzkoeffizienten
 #Interpretation des Ergebnisses
 
 
@@ -29,7 +30,8 @@ mosaicplot(table(myBier$Wohnort,myBier$Bier))#Erstellen eines Mosaikplots
 
 chisq.test(table(myBier$Wohnort,myBier$Bier))$statistic #Berechnung der chi-quadrat-größe
 
-#korrigierter Kontingenzkoeffizient fehlt noch
+KontingenzkoeffizientB <- sqrt(chisq.test(table(myBier$Wohnort,myBier$Bier))$statistic/(chisq.test(table(myBier$Wohnort,myBier$Bier))$statistic + length(myBier$Bier)))
+KontingenzkoeffizientB*sqrt(min(4,4)/(min(4,4)-1))
 #Interpretation des Ergebnisses
 
 #Augabe 4
@@ -78,11 +80,22 @@ korKonKoe <- function(x){#Funktion zur Berechnung des korrigierten Kontigenzkoef
   return(C)
 }
 
-myOrdinal <- function(x){
-  
+rangCor <- function(x){ #Berechnung des Rangkorrelationskoeffizienten nach Spearmen
+  return(cor(as.numeric(x[,1]),as.numeric(x[,2]), method = "spearman")) #Berechnung nach Formel aus dem Skript
 }
 
+myOrdinal <- function(x){ #Eigentliche Funktion, Zusammensetzung aus den Teilfunktionen
+  ergebnis <- c(chiq(x),ObereSchranke(x),KonKoe(x),korKonKoe(x),rangCor(x))
+  names(ergebnis) <- c("Chi-Quadrat-Größe","Obere Schranke", "Kontigenzkoeffizient", "korrigierter KOntigenzkoeffizient", "Rangkorrelationskoeffizient")
+  return(ergebnis)
+}
+myOrdinal(grades)
+#Die Werte stimmen mit denen aus der Vorlesung fast überall überein; Die Werte sind auf eine Nachkomma stelle gerundet, weshalb 
+#die Koeffizienten nicht sehr genau sind. Die Funktionen geben aber die korrekten Werte aus
+
+
 #Aufgabe 6 
+
 load("Data/Wissen.Rdata")
 #a) Man sieht, dass je mehr Forscher pro 1000 Beschäftigte, desto mehr Triadepatente je 1000000 Beschäftigte im Jahr 2002
 
