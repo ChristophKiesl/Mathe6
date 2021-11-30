@@ -48,3 +48,23 @@ myOrdinal <- function(x){
 #t <- table(x[,1],x[,2])
 #t <- addmargins(t)
 #keine sorge, ich mach da weiter und denk mir was dabei
+
+#Aufgabe 6 
+load("Data/Wissen.Rdata")
+#a) Man sieht, dass je mehr Forscher pro 1000 Beschäftigte, desto mehr Triadepatente je 1000000 Beschäftigte im Jahr 2002
+
+#b)
+var(Wissen$anzahl.forscher)
+var(Wissen$anzahl.triadepatente)
+cov(Wissen$anzahl.forscher, Wissen$anzahl.triadepatente)
+cor(Wissen$anzahl.forscher, Wissen$anzahl.triadepatente)
+
+#c)
+x<-Wissen$anzahl.triadepatente
+y<-(x/1000000)*1000
+y
+
+cor(Wissen$anzahl.forscher,y)
+
+# Die Korrelationskoeffizienten bleiben identisch
+
