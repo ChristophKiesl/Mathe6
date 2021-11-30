@@ -36,7 +36,7 @@ chisq.test(table(myBier$Wohnort,myBier$Bier))$statistic #Berechnung der chi-quad
 
 #Aufgabe 5
 
-chiq <-function(x){
+chiq <-function(x){ #Funktion, um die Chi-Quadrat-Größe zu bestimmen
   t <- table(x[,1],x[,2])
   t <- addmargins(t)
   m <- length(t[1,])
@@ -50,6 +50,32 @@ chiq <-function(x){
   }
   
   return(ergebnis)
+}
+
+ObereSchranke <- function(x){ #Funktion, um die obere Schranke zu bestimmen
+  n <- sum(table(x))
+  
+  ergebnis <- n*(min(c(nlevels(x[,1]),nlevels(x[,2])))-1)#Formel aus dem Skript
+    
+  return(ergebnis)
+}
+
+KonKoe <- function(x){ #Funktion zur Berechnung des Kontigenzkoeffizienten
+  n <- sum(table(x))
+  C <- sqrt((chiq(x))/(chiq(x)+n)) #Formel aus dem Skript
+  
+  return(C)
+}
+
+korKonKoe <- function(x){#Funktion zur Berechnung des korrigierten Kontigenzkoeffizienten
+  t <- table(x[,1],x[,2])
+  t <- addmargins(t)
+  m <- length(t[1,])
+  r <- length(t[,1])
+  
+  C <- KonKoe(x)*sqrt(min(r,m)/(min(r,m)-1))#Formel aus dem Skript
+  
+  return(C)
 }
 
 myOrdinal <- function(x){
@@ -67,7 +93,7 @@ cov(Wissen$anzahl.forscher, Wissen$anzahl.triadepatente)
 cor(Wissen$anzahl.forscher, Wissen$anzahl.triadepatente)
 
 #c)
-x<-Wissen$anzahl.triadepatente
+z<-Wissen$anzahl.triadepatente
 y<-(x/1000000)*1000
 y
 
