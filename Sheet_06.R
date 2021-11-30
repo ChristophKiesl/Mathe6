@@ -39,17 +39,25 @@ chisq.test(table(myBier$Wohnort,myBier$Bier))$statistic #Berechnung der chi-quad
 chiq <-function(x){
   t <- table(x[,1],x[,2])
   t <- addmargins(t)
+  m <- length(t[1,])
+  r <- length(t[,1])
+  ergebnis <- 0
+  for(j in 1:m){
+    for(k in 1:r){
+      njk <- (t[j,10]*t[10,k])/t[m,r]
+      ergebnis <- ergebnis + (((t[j,k] - njk)^2)/njk)
+    }
+  }
+  
+  return(ergebnis)
 }
 
 myOrdinal <- function(x){
   
 }
-#x <- grades
-#t <- table(x[,1],x[,2])
-#t <- addmargins(t)
-#keine sorge, ich mach da weiter und denk mir was dabei
 
 #Aufgabe 6 
+load("Data/Wissen.Rdata")
 #a) Man sieht, dass je mehr Forscher pro 1000 Beschäftigte, desto mehr Triadepatente je 1000000 Beschäftigte im Jahr 2002
 
 #b)
