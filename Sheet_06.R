@@ -17,7 +17,8 @@ chisq.test(table(myBier$Geschlecht,myBier$Bier))$statistic #Berechnung der chi-q
 
 KontingenzkoeffizientA <- sqrt(chisq.test(table(myBier$Geschlecht,myBier$Bier))$statistic/(chisq.test(table(myBier$Geschlecht,myBier$Bier))$statistic + length(myBier$Bier)))
 KontingenzkoeffizientA*sqrt(min(2,4)/(min(2,4)-1)) #Berechnung des korrigierten Kontingenzkoeffizienten
-#Interpretation des Ergebnisses
+#Die Chi-Quadrat-Größe ist ziemlich groß und der korr. Kontingenzkoeffizient ist 1, d.h. es besteht ein Zusammenhang. Auch kann man an den Grafiken erkennen,
+#dass Geschlecht 0 ausschließlich Bier 1 und 4, und Geschlecht 1 ausschließlich Bier 2 und 3 konsumiert
 
 
 #3 b)
@@ -32,7 +33,8 @@ chisq.test(table(myBier$Wohnort,myBier$Bier))$statistic #Berechnung der chi-quad
 
 KontingenzkoeffizientB <- sqrt(chisq.test(table(myBier$Wohnort,myBier$Bier))$statistic/(chisq.test(table(myBier$Wohnort,myBier$Bier))$statistic + length(myBier$Bier)))
 KontingenzkoeffizientB*sqrt(min(4,4)/(min(4,4)-1))
-#Interpretation des Ergebnisses
+#Der Chi-Quadrat-Wert ist eindeutig näher an der Null als an der oberen Schranke und der korr. KOntingenzkoeffizient ist näher an der Null als an der 1.
+#Das deutet darauf hin, dass es keinen Zusammenhang zwischen Wohnort und Biersorte gibt. Auch die Grafiken zeigen nichts gegenteiliges
 
 #Augabe 4
 
